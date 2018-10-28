@@ -1,5 +1,5 @@
  @Test
-    public void testCompareArticleTitle()
+    public void assertElementPresent()
     {
         waitForElementAndClick(
                 By.xpath("//*[contains(@text,'Search Wikipedia')]"),
@@ -20,11 +20,10 @@
         WebElement title_element = waitForElementPresent(
                 By.id("org.wikipedia:id/view_page_title_text"),
                 "Cannot find article title",
-                15
         );
         String article_title = title_element.getAttribute("text");
         Assert.assertEquals(
                 "We see unexpected title",
-                "Java (programming language)1",
+                "Javava (programming language)",
                 article_title
         );
