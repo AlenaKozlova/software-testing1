@@ -9,6 +9,7 @@ import org.junit.Test;
 
 public class MyListTests extends CoreTestCase {
 
+//     Ex.5
     @Test
 
     public void testsaveFirstArlicleToMyList()
@@ -38,4 +39,23 @@ public class MyListTests extends CoreTestCase {
         SearchPageObject.typeSearchLine("Appium");
         SearchPageObject.clickByArticleWithSubstring("Appium");
     }
+    
+// Ex.6    
+        @Test
+    public void testCompareArticleTitle() {
+
+        SearchPageObject SearchPageObject = new SearchPageObject(driver);
+
+        SearchPageObject.initSearchInput();
+        SearchPageObject.typeSearchLine("Java");
+        SearchPageObject.clickByArticleWithSubstring("Object-oriented programming language");
+
+        ArticlePageObject ArticlePageObject = new ArticlePageObject(driver);
+        String article_title = ArticlePageObject.getArticleTitle();
+        assertEquals(
+                "We see unexpected title",
+                "Java (programming language)1",
+                article_title
+        );
+
 }
