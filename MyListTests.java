@@ -33,5 +33,9 @@ public class MyListTests extends CoreTestCase {
         MyListPageObject MyListPageObject = new MyListPageObject(driver);
         MyListPageObject.openFolderByName(name_of_folder);
         MyListPageObject.swipeByArticleToDelite(article_title);
+        
+        SearchPageObject.initSearchInput();
+        SearchPageObject.typeSearchLine("Appium");
+        SearchPageObject.clickByArticleWithSubstring("Appium");
     }
 }
